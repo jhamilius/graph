@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ecosys Group</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+    <script src="https://use.fontawesome.com/c7ee5d9f71.js"></script>
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="">
+                        Ecosys Group
+                    </a>
+                </li>
+                <li>
+                    <a href="data.html"><i class="fa fa-database" aria-hidden="true"></i>    Dataset</a>
+                </li>
+                <li>
+                    <a href="model.html"><i class="fa fa-random" aria-hidden="true"></i>     Model</a>
+                </li>
+                <li>
+                    <a href="graph.html"><i class="fa fa-share-alt" aria-hidden="true"></i>     Graph</a>
+                </li>
+                <li>
+                    <a href="#map.html"><i class="fa fa-map-marker" aria-hidden="true"></i>      Map</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1><a href="#menu-toggle" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>  Map</h1>
+                        <hr>
+                        <p>Cette carte représente la densité des bureaux des lobbies dans les pays. Plus la densité est élevé plus la couleur est foncée.</p>
+                        <code>
+                            map_lobbies = folium.Map(location=[48,2], zoom_start=5)
+                            map_lobbies.geo_json(geo_path="../data/countries.geo.json", data=good,
+                                         columns=['country','Lobbies'],
+                                         key_on='feature.properties.name',
+                                         fill_color='YlGn', fill_opacity=0.7, line_opacity=0.2,
+                                         legend_name='Lobbies Count')
+                            map_lobbies.save('lobby.html')
+                        </code>
+                        <br><br>
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <div class="embed-responsive embed-responsive-16by9">
+                              <iframe class="embed-responsive-item" src="lobby.html"></iframe>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous">
+    </script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+<!-- Start of LiveChat (www.livechatinc.com) code -->
+<script type="text/javascript">
+window.__lc = window.__lc || {};
+window.__lc.license = 8474351;
+(function() {
+  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
+<!-- End of LiveChat code -->
+</body>
+
+</html>
